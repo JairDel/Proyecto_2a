@@ -135,9 +135,20 @@ BEGIN
   END IF;
 END;
 
-    --Prueba
+    --Prueba Insert:
 INSERT INTO sucursal_A (idsucursal, nombresucursal, ciudadsucursal, activos, region)
 VALUES ('S0015', 'Central', 'Horseneck', 100000, 'A');
+
+    --Prueba Update:
+SELECT * FROM sucursal_A;
+SELECT * FROM sucursal@db_link;
+UPDATE sucursal_A
+SET nombresucursal = 'Update'
+WHERE idsucursal = 'S0015';
+
+    --Prueba Delete:
+DELETE FROM sucursal_A
+WHERE idsucursal = 'S0015';
 
     --En el servidor B:
 CREATE OR REPLACE TRIGGER replicacion_sucursal_B
